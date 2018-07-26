@@ -8,8 +8,13 @@ router.get('/',(req, res, next)=>{
 })
 
 router.post('/',(req, res, next)=>{
+    var order = {
+        orderId: req.body.orderId,
+        weight: req.body.weight
+    }
     res.status(201).json({
-        message:'this is orders post req'
+        message:'this is orders post req',
+        order: order
     })
 })
 
