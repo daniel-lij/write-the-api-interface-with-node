@@ -4,9 +4,15 @@ const app = express()
 const morgan = require('morgan')
 // 解析post请求中间键
 const bodyParser = require('body-parser')
+// 获得mongoose做数据库
+const mongoose = require('mongoose')
 
 const productRoutes = require('./api/routes/products')
 const ordersRoutes = require('./api/routes/orders')
+
+mongoose.connect('mongodb://localhost/shop')
+
+mongoose.Promise = global.Promise
 
 // 日志启动的名字dev
 app.use(morgan('dev'))
